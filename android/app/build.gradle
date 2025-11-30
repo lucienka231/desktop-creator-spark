@@ -13,20 +13,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         aaptOptions {
-            // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
 
-    // 🔥 WYMUSZA JAVĘ 17 — bez tego jest błąd "invalid source release: 21"
+    // 🔥 WYMUSZA JAVĘ 17 — TO BYŁ PROBLEM
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-    }
-
-    // 🔥 jeżeli projekt używa Kotlina (Capacitor często ma)
-    kotlinOptions {
-        jvmTarget = "17"
     }
 
     buildTypes {
