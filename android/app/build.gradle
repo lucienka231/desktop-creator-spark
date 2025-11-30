@@ -17,7 +17,6 @@ android {
         }
     }
 
-    // 🔥 WYMUSZA JAVĘ 17 — TO BYŁ PROBLEM
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -61,6 +60,8 @@ try {
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }
+
+// 🔥 Wymuszenie Java 17 dla wszystkich subprojektów (np. capacitor-android, cordova plugins)
 subprojects {
     afterEvaluate { project ->
         if (project.hasProperty("android")) {
