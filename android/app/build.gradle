@@ -61,3 +61,11 @@ try {
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            project.android.compileOptions.sourceCompatibility = JavaVersion.VERSION_17
+            project.android.compileOptions.targetCompatibility = JavaVersion.VERSION_17
+        }
+    }
+}
